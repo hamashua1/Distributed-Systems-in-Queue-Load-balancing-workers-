@@ -1,0 +1,25 @@
+{
+  "name": "distributed-queue-load-balancer",
+  "version": "1.0.0",
+  "description": "Distributed job queue system with Nginx load balancing and Redis-backed workers",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "worker": "node worker/worker.js",
+    "dev:server": "nodemon server/index.js",
+    "dev:worker": "nodemon worker/worker.js",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:worker\""
+  },
+  "dependencies": {
+    "bullmq": "^5.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.0"
+  }
+}
