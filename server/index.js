@@ -62,7 +62,7 @@ app.get('/job/:id', async (req, res) => {
 
     const state = await job.getState();
     const result = job.returnvalue ?? null;
-    const failReason = job.failedReason ?? null;
+    const failReason = job.failedReason ? 'Job processing failed.' : null;
 
     return res.status(200).json({
       jobId: id,
